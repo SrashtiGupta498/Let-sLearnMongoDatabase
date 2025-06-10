@@ -1,0 +1,103 @@
+## MongoDB Basics
+
+**What is MongoDB?**
+
+MongoDB is a general-purpose, open-source, NoSQL document database designed for modern application development and cloud environments. Unlike traditional relational databases that use tables and rows, MongoDB stores data in flexible, JSON-like documents, allowing for dynamic and unstructured data storage[1][2][5][6].
+
+---
+
+**Key Concepts**
+
+- **Database**: A container for collections, similar to a database in relational systems[4].
+- **Collection**: The equivalent of a table in relational databases. Collections store documents and do not enforce a schema, so documents within a collection can have different fields[2][6].
+- **Document**: The basic unit of data in MongoDB, represented as a set of key-value pairs (similar to JSON objects, but stored internally as BSON—Binary JSON)[2][6]. Documents can contain nested documents and arrays, offering great flexibility.
+
+---
+
+**Example Document**
+
+```json
+{
+  "title": "Post Title 1",
+  "body": "Body of post.",
+  "category": "News",
+  "likes": 1,
+  "tags": ["news", "events"],
+  "date": "2025-06-10T22:06:00Z"
+}
+```
+This document could be stored in a collection called `posts`[2].
+
+---
+
+**Basic Operations (CRUD)**
+
+| Operation | Description | Example Command |
+|-----------|-------------|----------------|
+| Create    | Insert new documents into a collection | `db.posts.insertOne({title: "New Post"})` |
+| Read      | Query documents from a collection | `db.posts.find({category: "News"})` |
+| Update    | Modify existing documents | `db.posts.updateOne({title: "New Post"}, {$set: {likes: 2}})` |
+| Delete    | Remove documents from a collection | `db.posts.deleteOne({title: "New Post"})` |
+
+These commands are executed in the MongoDB shell or through drivers in various programming languages[5][4].
+
+---
+
+**Data Modeling**
+
+MongoDB’s schema-less nature allows you to model data in a way that best fits your application. You can embed related data in documents (nesting) or reference other documents, depending on your needs[3][6]. This flexibility is especially useful for handling complex or evolving data structures.
+
+---
+
+**Indexes and Performance**
+
+MongoDB supports various types of indexes (single field, compound, multikey, text, hashed) to optimize query performance. Every document has a unique `_id` field that acts as its primary key[5].
+
+---
+
+**Scalability and High Availability**
+
+MongoDB is built for scalability and high availability:
+- **Sharding**: Distributes data across multiple servers for horizontal scaling[5].
+- **Replication**: Maintains multiple copies of data for redundancy and failover.
+
+---
+
+**Common Use Cases**
+
+- Content management systems
+- Real-time analytics
+- Internet of Things (IoT) applications
+- Catalogs and inventory management[7]
+
+---
+
+**Getting Started**
+
+- Install MongoDB on your system (Windows, MacOS, Linux)[4].
+- Use the MongoDB shell (`mongosh`) or MongoDB Compass (GUI) for database operations[4][5].
+- Start by creating a database, adding collections, and inserting documents.
+
+---
+
+**Summary Table: MongoDB vs Relational Databases**
+
+| Feature            | MongoDB (NoSQL)     | Relational DB (SQL)      |
+|--------------------|---------------------|--------------------------|
+| Data Structure     | Documents (BSON)    | Tables (Rows & Columns)  |
+| Schema             | Flexible/Schema-less| Fixed Schema             |
+| Joins              | Limited/Manual      | Built-in                 |
+| Scalability        | Horizontal (Sharding)| Vertical (Scaling up)    |
+| Transactions       | Supported (since v4)| Supported                |
+
+---
+
+MongoDB is a powerful, flexible database well-suited for modern, data-driven applications that require scalability and rapid development[1][2][5][6].
+
+[1] https://www.mongodb.com/resources/products/fundamentals/basics
+[2] https://www.w3schools.com/mongodb/
+[3] https://learn.mongodb.com/learning-paths/introduction-to-mongodb
+[4] https://www.youtube.com/watch?v=c2M-rlkkT5o
+[5] https://www.tutorialspoint.com/mongodb/index.htm
+[6] https://www.youtube.com/watch?v=ExcRbA7fy_A
+[7] https://learn.mongodb.com/learn/learning-path/mongodb-basics-ict-academy-learnathon
